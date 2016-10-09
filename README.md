@@ -1,3 +1,3 @@
 # Zookeeper
 
-Zookeeper is a Sinatra CRUD application that allows users to sign up as zookeepers and take care of your favorite animal.
+Zookeeper is a Sinatra CRUD application that allows users to sign up as zookeepers and take care of their favorite animals.
