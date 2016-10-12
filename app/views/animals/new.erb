@@ -1,0 +1,36 @@
+<h1>Create Animal</h1>
+
+<form action="/animals" method="post">
+  <label>Name: </label>
+  <input type="text" id="name" name="name"><br>
+<label>Species: </label>
+  <select name="species">
+  	<optgroup label="Fish-Eating Animals">
+	  	<option value="dolphin">Dolphin</option>
+	  	<option value="penguin">Penguin</option>
+	  	<option value="brown bear">Brown Bear</option>
+	  	<option value="polar bear">Polar Bear</option>
+	  	<option value="seal">Seal</option>
+  	</optgroup>
+  	<optgroup label="Bamboo-Eating Animals">
+	  	<option value="panda">Panda</option>
+  	</optgroup>
+  	<optgroup label="Fruit-Eating Animals">
+	  	<option value="elephant">Elephant</option>
+	  	<option value="monkey">Monkey</option>
+	  	<option value="sloth">Sloth</option>
+	  	<option value="ape">Ape</option>
+  	</optgroup>
+  </select>
+  <br>
+<label>Gender: </label>
+  <select name="gender">
+  	<option value="male">Male</option>
+  	<option value="female">Female</option>
+  </select>
+  <br>
+<label>Description: </label>
+  <input type="text" id="description" name="description"><br>
+
+  <input type="submit" name="submit" value="submit">
+</form>

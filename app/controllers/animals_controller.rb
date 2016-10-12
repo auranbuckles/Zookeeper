@@ -8,15 +8,15 @@ class AnimalsController < ApplicationController
 	# create new animal
 
 	get '/animals/new' do
-		if logged_in?
+		# if logged_in?
 			erb :'/animals/new'
-		else
-			erb :'/signup'
-		end
+		# else
+			# erb :'/signup'
+		# end
 	end
 
 	post '/animals' do
-		if params[:name] != "" && params[:species] != ""
+		if params[:name] != "" && params[:species] != "" && params[:gender] != ""
 			@animal = Animal.new(name: params[:name], species: params[:species], description: params[:description])
 			@user = User.find(session[:user_id])
 			@animal.user_id = @user.id
