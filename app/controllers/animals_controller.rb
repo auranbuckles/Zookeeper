@@ -38,8 +38,9 @@ class AnimalsController < ApplicationController
 
 	# show actions
 
-	get '/animals/:id' do
-
+	get '/animal/:id' do
+		@animal = Animal.find(params[:id])
+		erb :'/animals/show'
 	end	
 
 end
