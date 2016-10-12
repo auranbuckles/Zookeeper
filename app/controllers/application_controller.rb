@@ -12,10 +12,17 @@ class ApplicationController < Sinatra::Base
   end
 
   get '/signup' do
+  	
+  end
+
+  post '/signup' do
   	redirect '/animals/new'
   end
 
   get '/login' do
+  end
+
+  post '/login' do
   	redirect 'animals'
   end
 
