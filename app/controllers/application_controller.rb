@@ -12,7 +12,11 @@ class ApplicationController < Sinatra::Base
   end
 
   get '/signup' do
-  	
+  	if logged_in?
+  		redirect '/'
+  	else
+	  	erb :signup
+	  end
   end
 
   post '/signup' do
@@ -20,6 +24,11 @@ class ApplicationController < Sinatra::Base
   end
 
   get '/login' do
+  	if logged_in?
+  		redirect '/'
+  	else
+  		erb :login
+  	end
   end
 
   post '/login' do
