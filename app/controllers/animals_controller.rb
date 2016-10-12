@@ -10,6 +10,7 @@ class AnimalsController < ApplicationController
 			erb :'/animals/new'
 		else
 			erb :'/signup'
+		end
 	end
 
 	post '/animals' do
