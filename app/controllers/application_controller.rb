@@ -24,6 +24,7 @@ class ApplicationController < Sinatra::Base
   	if @user.save && @user.username != "" && @user.password != ""
   		redirect '/login'
   	else
+  		flash[:error] = "Username and password fields required."
   		redirect '/signup'
 	  end
   end
