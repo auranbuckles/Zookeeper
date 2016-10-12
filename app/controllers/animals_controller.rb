@@ -5,18 +5,6 @@ class AnimalsController < ApplicationController
 		erb :'/animals/index'
 	end
 
-	# get '/animals' do
-	# 	if logged_in?
-	# 		@user = User.find(session[:user_id])
-	# 		@animals = @user.animals
-	# 		erb :'/animals/index'
-	# 	else
-	# 		redirect '/signup'
-	# 	end
-	# end
-
-	# create animals
-
 	get '/animals/new' do
 		if logged_in?
 			erb :'/animals/new'
