@@ -1,0 +1,7 @@
+<h1>All Animals</h1>
+
+<ul>
+	<% @animals.each do |animal| %>
+		<li><a href="/animal/<%= animal.id %>"><%= animal.name %></a> | Keeper: <a href="/user/<%= animal.user.id %>"><%= animal.user.username %></a></li>
+	<% end %>
+</ul>

@@ -1,18 +1,19 @@
 class AnimalsController < ApplicationController
 
 	get '/animals' do
-		if logged_in?
-			@user = User.find(session[:user_id])
-			if @user.animals
-				@animals = @user.animals
-			else
-				render "You currently do not have any animals."
-			end
-			erb :'/animals/index'
-		else
-			redirect '/signup'
-		end
+		@animals = Animal.all
+		erb :'/animals/index'
 	end
+
+	# get '/animals' do
+	# 	if logged_in?
+	# 		@user = User.find(session[:user_id])
+	# 		@animals = @user.animals
+	# 		erb :'/animals/index'
+	# 	else
+	# 		redirect '/signup'
+	# 	end
+	# end
 
 	# create animals
 
