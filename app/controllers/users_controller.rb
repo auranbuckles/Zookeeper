@@ -29,12 +29,16 @@ class UsersController < ApplicationController
 
 	patch '/user/:id' do
 		@user = User.find(params[:id])
-		if logged_in? && current_user == @user
-			@user.update(bamboo_shoots: @user.bamboo_shoots + 5)
+		# if logged_in? && current_user == @user
+			@user.update(bamboo_shoots: @user.bamboo_shoots + params[:bamboo_shoots].to_i)
+			@user.update(fish: @user.fish + params[:fish].to_i)
+			@user.update(fruits: @user.fruits + params[:fruits].to_i)
+			@user.update(grass: @user.grass + params[:grass].to_i)
+			@user.update(meat: @user.meat + params[:meat].to_i)
 			redirect "/user/#{@user.id}"
-		else
-			redirect "/user/#{@user.id}/edit"
-		end
+		# else
+		# 	redirect "/user/#{@user.id}/edit"
+		# end
 	end
 
 end

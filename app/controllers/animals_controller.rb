@@ -5,6 +5,8 @@ class AnimalsController < ApplicationController
 		erb :'/animals/index'
 	end
 
+	# create new animal
+
 	get '/animals/new' do
 		if logged_in?
 			erb :'/animals/new'

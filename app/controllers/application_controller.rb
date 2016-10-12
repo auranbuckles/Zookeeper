@@ -30,7 +30,7 @@ class ApplicationController < Sinatra::Base
   	if @user.valid? && username_exists? == nil
   		@user.save
   		session[:user_id] = @user.id
-  		redirect '/animals'
+  		redirect "/user/#{@user.id}"
   	else
   		flash[:error]
   		redirect '/signup'

@@ -3,7 +3,19 @@
 <form action="/user/<%= @user.id %>" method="POST">
   <input type="hidden" name="_method" value="PATCH">
   <label>Bamboo Shoots: </label>
-  <input type="text" name="bamboo_shoots" value="<%= @user.bamboo_shoots %>">
-  <br /><br />
-  <input type="submit" name="submit" value="submit">
+  <input type="number" name="bamboo_shoots" value="0"><br><br>
+
+  <label>Fish: </label>
+  <input type="number" name="fish" value="0"><br><br>
+
+  <label>Fruits: </label>
+  <input type="number" name="fruits" value="0"><br><br>
+
+  <label>Grass: </label>
+  <input type="number" name="grass" value="0"><br><br>
+
+  <label>Meat: </label>
+  <input type="number" name="meat" value="0"><br><br>
+
+  <input type="submit" name="submit" value="Purchase">
 </form>
