@@ -3,6 +3,7 @@ class CreateAnimals < ActiveRecord::Migration
   	create_table :animals do |t|
   		t.string :name
   		t.string :species
+      t.string :gender
   		t.text :description
   		t.integer :appetite, :default => 10
   		t.integer :happiness, :default => 0

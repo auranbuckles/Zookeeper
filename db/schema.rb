@@ -16,6 +16,7 @@ ActiveRecord::Schema.define(version: 20161012050423) do
   create_table "animals", force: :cascade do |t|
     t.string  "name"
     t.string  "species"
+    t.string  "gender"
     t.text    "description"
     t.integer "appetite",    default: 10
     t.integer "happiness",   default: 0
