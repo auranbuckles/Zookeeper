@@ -2,12 +2,12 @@ require './config/environment'
 require 'sinatra/flash'
 
 class ApplicationController < Sinatra::Base
-	enable :sessions
   register Sinatra::Flash
 
   configure do
     set :public_folder, 'public'
     set :views, 'app/views'
+		enable :sessions
   end
 
   get '/' do
@@ -15,9 +15,9 @@ class ApplicationController < Sinatra::Base
   end
 
   get '/signup' do
-  	if flash[:error]
-  		flash[:error] = "Username and password fields required."
-  	end
+  	# if flash[:error]
+  	# 	flash[:error] = "Username and password fields required."
+  	# end
   	if logged_in?
   		redirect '/user/:id'
   	else
@@ -39,7 +39,8 @@ class ApplicationController < Sinatra::Base
 
   get '/login' do
   	if logged_in?
-  		redirect '/'
+  		@user = User.find_by(:username => params[:username])
+  		redirect "/user/#{@user.id}"
   	else
   		erb :login
   	end
