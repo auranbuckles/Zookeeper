@@ -1,5 +1,11 @@
 class UsersController < ApplicationController
 
+	# index – all users
+	get '/users' do
+		@users = User.all
+		erb :'/users/index'
+	end
+
 	# show action
 	# redirected after login
 
