@@ -21,17 +21,49 @@ class AnimalsController < ApplicationController
 			@user = User.find(session[:user_id])
 			@animal.user_id = @user.id
 			@animal.save
-			redirect_to '/animals/#{@animal.id}'
+			redirect '/animals/#{@animal.id}'
 		else
-			redirect_to '/animals/new'
+			redirect '/animals/new'
 		end
 	end
 
-	# show actions
+	# show single animal
 
 	get '/animal/:id' do
 		@animal = Animal.find(params[:id])
 		erb :'/animals/show'
 	end	
+
+	# edit actions
+
+	get '/animal/:id/edit' do
+		if logged_in?
+			@animal = Animal.find(params[:id])
+			erb :'/animals/edit'
+		else
+			redirect '/login'
+		end
+	end
+
+	patch '/animal/:id' do
+		@animal = Animal.find(params[:id])
+		if logged_in? && @animal.user = current_user && params[:name] != ""
+			@animal.update(:name => params[:name], :description => params[:description])
+		end
+		redirect "/animal/#{@animal.id}"
+	end
+
+	# delete action
+
+	delete '/animal/:id' do
+		@animal = Animal.find(params[:id])
+		@user = User.find(session[:user_id])
+		if current_user.id == @animal.user_id
+			@animal.destroy
+			redirect "/user/#{@user.id}"
+		else
+			redirect "/animal/#{@animal.id}"
+		end
+	end
 
 end
