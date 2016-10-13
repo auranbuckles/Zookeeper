@@ -1,0 +1,15 @@
+
+/*Basic*/
+	
+	h1 {
+		color: #336900;
+		font-weight: 800;
+	}
+
+/*Navigation*/
+
+	nav {
+		float: right;
+		text-align: right;
+		margin-right: 2em;
+	}
