@@ -81,6 +81,22 @@ class ApplicationController < Sinatra::Base
       current_user.id == @user.id
     end
 
+    def appropriate_food
+      species = @animal.species
+      case species
+      when "dolphin" || "penguin" || "brown bear" || "polar bear" || "seal"
+        "fish"
+      when "panda"
+        "bamboo shoots"
+      when "elephant" || "monkey" || "sloth" || "ape"
+        "fruits"
+      when "lion" || "tiger" || "cheetah" || "red fox" || "wolf"
+        "meat"
+      when "kangaroo" || "zebra" || "buffalo" || "elk" || "deer" || "rhino"
+        "grass"
+      end
+    end
+
   end
 
 end
