@@ -7,12 +7,14 @@
 	<% end %>
 </ul>
 
-<h2>Food</h2>
+<h2>Food Inventory</h2>
 
-<h3>Bamboo Shoots: <%= @user.bamboo_shoots %></h3>
-<h3>Fish: <%= @user.fish %></h3>
-<h3>Fruits: <%= @user.fruits %></h3>
-<h3>Grass: <%= @user.grass %></h3>
-<h3>Meat: <%= @user.meat %></h3>
+<ul>
+	<li>Bamboo Shoots: <%= @user.bamboo_shoots %></li>
+	<li>Fish: <%= @user.fish %></li>
+	<li>Fruits: <%= @user.fruits %></li>
+	<li>Grass: <%= @user.grass %></li>
+	<li>Meat: <%= @user.meat %></li>
+</ul>
 
 <a href="/user/<%= @user.id %>/edit">Purchase more food</a>
