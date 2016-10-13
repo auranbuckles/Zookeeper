@@ -4,18 +4,23 @@
   <input type="hidden" name="_method" value="PATCH">
   <label>Bamboo Shoots: </label>
   <input type="number" name="bamboo_shoots" value="0"><br><br>
+  <p>Current inventory: <%= @user.bamboo_shoots %></p>
 
   <label>Fish: </label>
   <input type="number" name="fish" value="0"><br><br>
+  <p>Current inventory: <%= @user.fish %></p>
 
   <label>Fruits: </label>
   <input type="number" name="fruits" value="0"><br><br>
+  <p>Current inventory: <%= @user.fruits %></p>
 
   <label>Grass: </label>
   <input type="number" name="grass" value="0"><br><br>
+  <p>Current inventory: <%= @user.grass %></p>
 
   <label>Meat: </label>
   <input type="number" name="meat" value="0"><br><br>
+  <p>Current inventory: <%= @user.meat %></p>
 
   <input type="submit" name="submit" value="Purchase">
 </form>
