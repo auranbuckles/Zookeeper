@@ -1,30 +1,32 @@
-<h1><%= @animal.name %></h1>
-<img style="display: inline-block;" height="300" src="/images/<%= @animal.species.parameterize %>.jpg" alt="animal image">
-
-<h2>Keeper: <a href="/user/<%= @animal.user_id %>"><%= @animal.user.username %></a></h2>
-<h2>Species: <%= @animal.species %></h2>
-<h2>Gender: <%= @animal.gender %></h2>
-<h2>Eats: <%= appropriate_food %></h2>
-<p><%= @animal.description %></p>
-
-<h2>Current Status</h2>
-<h3>Appetite Level: <%= @animal.appetite %></h3>
-<h3>Happiness Level: <%= @animal.happiness %></h3>
-
-<form action="/animal-attributes/<%= @animal.id %>" method="post">
-  <input type="hidden" name="_method" value="patch">
-  <input type="submit" value="Feed <%= @animal.name %>">
-</form> <br>
-
-<a href="/animal/<%= @animal.id %>/edit"><input type="button" value="Edit Information"></a> <br><br>
-
-<form action="/animal-status/<%= @animal.id %>" method="post">
-  <input type="hidden" name="_method" value="patch">
-  <input type="submit" value="Reset Status">
-</form> <br>
-
-<form action="/animal/<%= @animal.id %>" method="post">
-  <input type="hidden" name="_method" value="delete">
-  <input type="submit" value="Give it away to Professor Willow, but for no candy :'(">
-</form>
+<div class="container">
+	<h1><%= @animal.name %></h1>
+	<img style="display: inline-block;" height="300" src="/images/<%= @animal.species.parameterize %>.jpg" alt="animal image">
+	
+	<h2>Keeper: <a href="/user/<%= @animal.user_id %>"><%= @animal.user.username %></a></h2>
+	<h2>Species: <%= @animal.species %></h2>
+	<h2>Gender: <%= @animal.gender %></h2>
+	<h2>Eats: <%= appropriate_food %></h2>
+	<p><%= @animal.description %></p>
+	
+	<h2>Current Status</h2>
+	<h3>Appetite Level: <%= @animal.appetite %></h3>
+	<h3>Happiness Level: <%= @animal.happiness %></h3>
+	
+	<form action="/animal-attributes/<%= @animal.id %>" method="post">
+	  <input type="hidden" name="_method" value="patch">
+	  <input type="submit" value="Feed <%= @animal.name %>">
+	</form> <br>
+	
+	<a href="/animal/<%= @animal.id %>/edit"><input type="button" value="Edit Information"></a> <br><br>
+	
+	<form action="/animal-status/<%= @animal.id %>" method="post">
+	  <input type="hidden" name="_method" value="patch">
+	  <input type="submit" value="Reset Status">
+	</form> <br>
+	
+	<form action="/animal/<%= @animal.id %>" method="post">
+	  <input type="hidden" name="_method" value="delete">
+	  <input type="submit" value="Give it away to Professor Willow, but for no candy :'(">
+	</form>
+</div>
 
