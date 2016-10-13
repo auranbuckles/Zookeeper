@@ -6,23 +6,26 @@
     <link rel="stylesheet" href="/css/style.css" type="text/css" />
   </head>
   <body>
-    <nav>
-      <% if logged_in? %>
+    <div class="container">
+      <nav>
+        <h1 id="logo">Zookeeper</h1>
+      
+        <% if logged_in? %>
+          <a href="/animals/new"> Create Animal </a> |
+          <a href="/user/<%= current_user.id %>/edit"> Purchase Food </a> |
+          <a href="/user/<%= current_user.id %>"> View Profile </a> |
+          <a href="/logout"> Log Out </a>
+          <p>Signed in as <%=current_user.username %></p>
 
-        <a href="/animals/new"> Create Animal </a> |
-        <a href="/user/<%= current_user.id %>/edit"> Purchase Food </a> |
-        <a href="/user/<%= current_user.id %>"> View Profile </a> |
-        <a href="/logout"> Log Out </a>
-        <p>Hello, <%=current_user.username %></p>
+        <% else %>
+          <a href="/signup">Sign Up</a>
+          <a href="/login"> Sign In </a>
+        <%end %>
+      
+      </nav>
+    </div>
 
-      <% else %>
-        <a href="/signup">Sign Up</a>
-        <a href="/login"> Sign In </a>
-      <%end %>
-
-    </nav>
-
-		<div>
+		<div class="container">
       <%= yield %> 
     </div>
     
