@@ -76,7 +76,7 @@ class AnimalsController < ApplicationController
 			@animal.update(appetite: 10, happiness: 0)
 		end
 		redirect "/animal/#{@animal.id}"
-	and
+	end
 
 	# delete action
 
