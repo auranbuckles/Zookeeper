@@ -1,5 +1,4 @@
 require './config/environment'
-require 'sinatra/flash'
 
 class ApplicationController < Sinatra::Base
   register Sinatra::Flash
@@ -8,6 +7,7 @@ class ApplicationController < Sinatra::Base
     set :public_folder, 'public'
     set :views, 'app/views'
 		enable :sessions
+    set :session_secret, "animalsarecute"
   end
 
   get '/' do
@@ -15,11 +15,12 @@ class ApplicationController < Sinatra::Base
   end
 
   get '/signup' do
-  	# if flash[:error]
-  	# 	flash[:error] = "Username and password fields required."
-  	# end
+  	if flash[:error]
+  		flash[:error] = "Username and password fields required."
+  	end
   	if logged_in?
-  		redirect '/user/:id'
+      @user = current_user
+      redirect "/user/#{@user.id}"
   	else
   		erb :signup
   	end
@@ -39,7 +40,7 @@ class ApplicationController < Sinatra::Base
 
   get '/login' do
   	if logged_in?
-  		@user = User.find_by(:username => params[:username])
+      @user = current_user
   		redirect "/user/#{@user.id}"
   	else
   		erb :login
@@ -63,16 +64,21 @@ class ApplicationController < Sinatra::Base
 
   helpers do
 
-  	def logged_in?
-  		!!current_user
-  	end
+    def logged_in?
+      !!current_user
+    end
 
-  	def current_user
-  		@current_user ||= User.find(session[:user_id]) if session[:user_id]
-  	end
+    def current_user
+      @current_user ||= User.find(session[:user_id]) if session[:user_id]
+    end
 
   	def username_exists?
       User.find_by(:username => params[:username])
+    end
+
+    def is_authorized?
+      @user = User.find(params[:id])
+      current_user.id == @user.id
     end
 
   end

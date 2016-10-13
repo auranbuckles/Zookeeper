@@ -19,26 +19,26 @@ class UsersController < ApplicationController
 	# purchase more food
 
 	get '/user/:id/edit' do
-		# if logged_in?
+		if logged_in? && is_authorized?
 			@user = User.find(params[:id])
-			erb :'/users/edit'
-		# else
-		# 	redirect '/login'
-		# end
+			erb :'/users/edit'			
+		else
+			redirect '/login'
+		end
 	end
 
 	patch '/user/:id' do
 		@user = User.find(params[:id])
-		# if logged_in? && current_user == @user
+		if logged_in? && is_authorized?
 			@user.update(bamboo_shoots: @user.bamboo_shoots + params[:bamboo_shoots].to_i)
 			@user.update(fish: @user.fish + params[:fish].to_i)
 			@user.update(fruits: @user.fruits + params[:fruits].to_i)
 			@user.update(grass: @user.grass + params[:grass].to_i)
 			@user.update(meat: @user.meat + params[:meat].to_i)
 			redirect "/user/#{@user.id}"
-		# else
-		# 	redirect "/user/#{@user.id}/edit"
-		# end
+		else
+			redirect '/login'
+		end
 	end
 
 end
