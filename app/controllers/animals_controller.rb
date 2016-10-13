@@ -70,6 +70,14 @@ class AnimalsController < ApplicationController
 		redirect "/animal/#{@animal.id}"
 	end
 
+	patch '/animal-status/:id' do
+		@animal = Animal.find(params[:id])
+		if logged_in? && current_user.id == @animal.user.id
+			@animal.update(appetite: 10, happiness: 0)
+		end
+		redirect "/animal/#{@animal.id}"
+	and
+
 	# delete action
 
 	delete '/animal/:id' do
