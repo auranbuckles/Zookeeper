@@ -6,11 +6,15 @@
 		font-weight: 800;
 	}
 
-	h1#logo {
+	h1#logo a {
 		background-color: #41CCFA;
 		color: white;
 		margin-top: 0;
 		padding: 0.5em;
+	}
+
+	h1#logo a:hover {
+		text-decoration: none;
 	}
 
 /*Navigation*/
