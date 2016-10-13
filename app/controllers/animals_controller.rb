@@ -8,20 +8,20 @@ class AnimalsController < ApplicationController
 	# create new animal
 
 	get '/animals/new' do
-		# if logged_in?
+		if logged_in?
 			erb :'/animals/new'
-		# else
-			# erb :'/signup'
-		# end
+		else
+			erb :'/signup'
+		end
 	end
 
 	post '/animals' do
-		if params[:name] != "" && params[:species] != "" && params[:gender] != ""
-			@animal = Animal.new(name: params[:name], species: params[:species], description: params[:description])
+		@animal = Animal.new(name: params[:name], species: params[:species], description: params[:description])
+		if @animal.valid?
 			@user = User.find(session[:user_id])
 			@animal.user_id = @user.id
 			@animal.save
-			redirect '/animals/#{@animal.id}'
+			redirect "/animal/#{@animal.id}"
 		else
 			redirect '/animals/new'
 		end
