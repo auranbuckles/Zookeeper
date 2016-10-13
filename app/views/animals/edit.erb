@@ -1,0 +1,10 @@
+<h1>Edit <%= @animal.name %></h1>
+
+<form action="/animal/<%= @animal.id %>" method="POST">
+	<input type="hidden" name="_method" value="patch">
+  <label>Name: </label>
+  <input type="text" id="name" name="name" value="<%= @animal.name %>"><br>
+	<label>Description: </label><br>
+	  <textarea rows="10" cols="50" id="description" name="description"></textarea><br>
+  <input type="submit" name="submit" value="submit">
+</form>

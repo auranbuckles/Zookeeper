@@ -16,11 +16,8 @@ class AnimalsController < ApplicationController
 	end
 
 	post '/animals' do
-		@animal = Animal.new(name: params[:name], species: params[:species], description: params[:description])
-		if @animal.valid?
-			@user = User.find(session[:user_id])
-			@animal.user_id = @user.id
-			@animal.save
+		if logged_in?
+			@animal = current_user.animals.create(name: params[:name], species: params[:species], description: params[:description])
 			redirect "/animal/#{@animal.id}"
 		else
 			redirect '/animals/new'
@@ -37,8 +34,8 @@ class AnimalsController < ApplicationController
 	# edit actions
 
 	get '/animal/:id/edit' do
-		if logged_in?
-			@animal = Animal.find(params[:id])
+		@animal = Animal.find(params[:id])
+		if logged_in? && current_user.id == @animal.user.id
 			erb :'/animals/edit'
 		else
 			redirect '/login'
@@ -47,7 +44,7 @@ class AnimalsController < ApplicationController
 
 	patch '/animal/:id' do
 		@animal = Animal.find(params[:id])
-		if logged_in? && @animal.user = current_user && params[:name] != ""
+		if logged_in? && current_user.id == @animal.user.id && params[:name] != ""
 			@animal.update(:name => params[:name], :description => params[:description])
 		end
 		redirect "/animal/#{@animal.id}"
@@ -58,7 +55,7 @@ class AnimalsController < ApplicationController
 	delete '/animal/:id' do
 		@animal = Animal.find(params[:id])
 		@user = User.find(session[:user_id])
-		if current_user.id == @animal.user_id
+		if logged_in? && current_user.id == @animal.user.id
 			@animal.destroy
 			redirect "/user/#{@user.id}"
 		else

@@ -1,6 +1,6 @@
 class Animal < ActiveRecord::Base
 
-	validates_presence_of :name, :species, :gender
+	validates_presence_of :name
 
 	belongs_to :user
 
