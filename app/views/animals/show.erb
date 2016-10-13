@@ -1,5 +1,5 @@
 	<h1><%= @animal.name %></h1>
-	<img style="display: inline-block;" height="300" src="/images/<%= @animal.species.parameterize %>.jpg" alt="animal image">
+	<img height="300" src="/images/<%= @animal.species.parameterize %>.jpg" alt="animal image">
 	
 	<h2>Keeper: <a href="/user/<%= @animal.user_id %>"><%= @animal.user.username %></a></h2>
 	<h2>Species: <%= @animal.species %></h2>

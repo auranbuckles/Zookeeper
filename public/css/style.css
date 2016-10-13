@@ -6,6 +6,13 @@
 		font-weight: 800;
 	}
 
+	img {
+		float: right;
+		display: inline-block;
+	}
+
+/*Navigation*/
+
 	h1#logo a {
 		background-color: #41CCFA;
 		color: white;
@@ -16,8 +23,6 @@
 	h1#logo a:hover {
 		text-decoration: none;
 	}
-
-/*Navigation*/
 
 	nav {
 		width: 100%;
