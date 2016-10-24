@@ -30,7 +30,6 @@ class ApplicationController < Sinatra::Base
   		session[:user_id] = @user.id
   		redirect "/user/#{@user.id}"
   	else
-  		flash[:error]
   		redirect '/signup'
 	  end
   end
