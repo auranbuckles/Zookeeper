@@ -17,7 +17,7 @@ class AnimalsController < ApplicationController
 
 	post '/animals' do
 		if logged_in?
-			@animal = current_user.animals.create(name: params[:name], species: params[:species], description: params[:description])
+			@animal = current_user.animals.create(name: params[:name], species: params[:species], gender: params[:gender], description: params[:description])
 			redirect "/animal/#{@animal.id}"
 		else
 			redirect '/animals/new'
