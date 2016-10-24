@@ -8,3 +8,4 @@ use Rack::MethodOverride
 run ApplicationController
 use AnimalsController
 use UsersController
+use SessionController
