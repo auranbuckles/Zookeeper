@@ -1,7 +1,7 @@
-
 /*Basic*/
 	
 	h1 {
+		margin-top: 0;
 		color: #FFC629;
 		font-weight: 800;
 	}
@@ -11,26 +11,63 @@
 		display: inline-block;
 	}
 
-/*Navigation*/
+	.jumbotron {
+		margin: 0;
+		padding: 0;
+		background-color: #fffff9;
+	}
+
+	.jumbotron h2 {
+		font-size: 18px;
+	}
+
+	.jumbotron p, .jumbotron h3 {
+		font-size: 16px;
+	}
+
+	.container .jumbotron {
+		padding: 1em 3em;
+		background-color: #efefef;
+	}
+
+/*Top banner*/
+
+	#logo {
+		padding: 100px;
+		display: block;
+		background-image: url("/images/banner.jpg");
+		background-size: 100% auto;
+		width: 100%;
+	}
 
 	h1#logo a {
-		background-color: #41CCFA;
 		color: white;
 		margin-top: 0;
-		padding: 0.5em;
 	}
 
 	h1#logo a:hover {
 		text-decoration: none;
 	}
 
-	nav {
+/*Navigation*/
+
+	.nav-items {
 		width: 100%;
 		float: right;
 		text-align: right;
-		margin: 2em;
 	}
 
-	nav h1 {
-		float: left;
-	}
+/*Buttons*/
+
+.inline-btn, .inline-btn form {
+	display: inline;
+	padding-top: 0.5em;
+}
+
+button a {
+	color: white;
+}
+
+button.btn {
+	border-radius: 4px;
+}
